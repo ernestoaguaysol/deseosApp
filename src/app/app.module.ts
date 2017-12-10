@@ -7,6 +7,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { PendientesPage } from '../pages/pendientes/pendientes';
 import { TerminadosPage } from '../pages/terminados/terminados';
 import { AgregarPage } from '../pages/agregar/agregar';
+import { DetallePage } from '../pages/detalle/detalle';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +24,8 @@ import { ListaDeseosProvider } from '../providers/lista-deseos/lista-deseos';
     TabsPage,
     PendientesPage,
     AgregarPage,
-    TerminadosPage
+    TerminadosPage,
+    DetallePage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +38,8 @@ import { ListaDeseosProvider } from '../providers/lista-deseos/lista-deseos';
     TabsPage,
     PendientesPage,
     AgregarPage,
-    TerminadosPage
+    TerminadosPage,
+    DetallePage
   ],
   providers: [
     StatusBar,

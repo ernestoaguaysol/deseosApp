@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { ListaItem } from '../../clases/index';
+import { NavController, NavParams, AlertController} from 'ionic-angular';
+import { ListaItem, Lista } from '../../clases/index';
+import { ListaDeseosProvider } from '../../providers/lista-deseos/lista-deseos';
 
 @Component({
   selector: 'page-agregar',
@@ -8,12 +9,15 @@ import { ListaItem } from '../../clases/index';
 })
 export class AgregarPage {
 
-  nombreLista:string;
+  nombreLista:string = "";
   nombreItem:string = "";
 
   items:ListaItem[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams,
+              public alertCtrl: AlertController,
+              public _listaDeseos: ListaDeseosProvider) {
   }
 
   ionViewDidLoad() {
@@ -32,9 +36,30 @@ export class AgregarPage {
   }
 
   borrarItem(index: number){
-    console.log('presiona el boton borrar');
-    
     this.items.splice(index, 1);
+  }
+
+  guardarLista(){
+    if (this.nombreLista.length == 0) {
+      this.showAlert();
+      return;
+    }
+    
+    let lista = new Lista(this.nombreLista);
+    lista.items = this.items;
+
+    // this._listaDeseos.listas.push(lista);
+    this._listaDeseos.agregarLista(lista);
+    this.navCtrl.pop();
+  }
+
+  showAlert() {
+    let alert = this.alertCtrl.create({
+      title: 'Nombre de la lista',
+      subTitle: 'El nombre de la lista es obligatorio',
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }

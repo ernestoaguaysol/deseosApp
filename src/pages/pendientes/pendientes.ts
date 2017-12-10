@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ListaDeseosProvider } from '../../providers/lista-deseos/lista-deseos';
 import { AgregarPage } from '../agregar/agregar';
+import { DetallePage } from '../detalle/detalle';
+import { Lista } from '../../clases/index';
 
 @Component({
   selector: 'page-pendientes',
@@ -19,6 +21,10 @@ export class PendientesPage {
 
   ionViewDidLoad() {
     console.log ('ionViewDidLoad PendientesPage');
+  }
+
+  verDetalle(lista:Lista , idx:number){
+    this.navCtrl.push(DetallePage,{lista,idx})
   }
 
 }
