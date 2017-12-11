@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the TerminadosPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController } from 'ionic-angular';
+import { ListaDeseosProvider } from '../../providers/lista-deseos/lista-deseos';
+import { AgregarPage } from '../agregar/agregar';
+import { DetallePage } from '../detalle/detalle';
+import { Lista } from '../../clases/index';
 
 @Component({
   selector: 'page-terminados',
@@ -14,11 +11,13 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class TerminadosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public _listaDeseos: ListaDeseosProvider,
+    public navCtrl: NavController
+  ) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TerminadosPage');
+  verDetalle(lista: Lista, idx: number) {
+    this.navCtrl.push(DetallePage, { lista, idx })
   }
 
 }

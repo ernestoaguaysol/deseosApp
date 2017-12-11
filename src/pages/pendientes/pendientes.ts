@@ -12,15 +12,11 @@ import { Lista } from '../../clases/index';
 export class PendientesPage {
 
   constructor(public _listaDeseos: ListaDeseosProvider,
-    public navCtrl: NavController) {
+              public navCtrl: NavController) {
   }
 
   toAgregar(){
     this.navCtrl.push(AgregarPage);
-  }
-
-  ionViewDidLoad() {
-    console.log ('ionViewDidLoad PendientesPage');
   }
 
   verDetalle(lista:Lista , idx:number){

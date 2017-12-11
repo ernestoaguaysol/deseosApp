@@ -30,7 +30,7 @@ export class DetallePage {
     item.completado = !item.completado;
 
     let todosMarcados = true;
-    for (let index of this.lista.items) {
+    for (let item of this.lista.items) {
       if(!item.completado){
         todosMarcados = false;
         break;
@@ -38,6 +38,8 @@ export class DetallePage {
     }
 
     this.lista.terminada = todosMarcados; 
+    console.log('terminada '+todosMarcados);
+    
 
     this._listaDeseos.actualizarData();
 

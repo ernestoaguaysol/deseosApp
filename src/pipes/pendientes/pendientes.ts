@@ -11,6 +11,7 @@ export class PendientesPipe implements PipeTransform {
    */
   transform(listas: Lista[], estado: boolean = false): Lista[] {
     
+    
     let nuevaLista:Lista[] = [] 
     for(let lista of listas){
       if(lista.terminada == estado){
@@ -18,5 +19,7 @@ export class PendientesPipe implements PipeTransform {
       }
     }
     return nuevaLista;
+
+    // return listas.filter((lista) => lista.terminada === estado);
   }
 }
